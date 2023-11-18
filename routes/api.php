@@ -13,8 +13,10 @@ Route::apiResource('v1/posts', App\Http\Controllers\Api\v1\PostController::class
 
 //v1 routes
 Route::apiResource('v1/posts', PostV1::class)
-->only(['index','show', 'destroy']);
+->only(['index','show', 'destroy'])
+->middleware('auth:sanctum');
 
 //v2 routes
 Route::apiResource('v2/posts', PostV2::class)
-->only(['index','show']);
+->only(['index','show'])
+->middleware('auth:sanctum');
